@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Verification - NSA WEEK CELEBRATION 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, rgba(85, 242, 71, 0.8) 0%, rgba(0, 28, 7, 0.9) 0%), url('https://i.pinimg.com/1200x/cc/8c/a6/cc8ca69cd31b53bac19b2e5ae4856d7d.jpg') center/cover no-repeat; /* Replace 'https://i.pinimg.com/1200x/cc/8c/a6/cc8ca69cd31b53bac19b2e5ae4856d7d.jpg' with your image path */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ffffff, #ffffff);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #b4e7ba;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .verify-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #05a019, #013209);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .verify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .verify-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.4s ease;
+        }
+
+        .result.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .result.valid {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+
+        .result.invalid {
+            background: linear-gradient(45deg, #ff0303, #8b221d);
+            color: white;
+        }
+
+        .result.pending {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .ticket-info {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #4ecdc4;
+            text-align: left;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+
+        .ticket-info.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .ticket-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .ticket-info p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .event-details {
+            background: linear-gradient(135deg, #05a019, #013209);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .event-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .event-details p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"><img src="https://aicdn.picsart.com/1f3cb5db-8b12-4d68-ae86-6e929387e553.png" width="188.4" height="123.6" alt="NSA Week Celebration 2026 logo featuring green and white design elements representing the Yakub-Ganyo Led Administration event"></div>
+        <div class="event-details">
+            <h2>NSA DINNER & AWARDS NIGHT</h2>
+            <p>YAKUB-GANYO LED ADMINISTRATION<br>
+            April 11, 2026 | Venue: <b>Sweet Touch</b>-Sunyani</p>
+        </div>
+
+        <h1>Ticket Verification</h1>
+        <p class="subtitle">Enter your ticket code to verify entry</p>
+
+        <div class="input-group">
+            <input type="text" id="ticketCode" placeholder="Enter ticket code (e.g. ABC123-XYZ789)" maxlength="20">
+        </div>
+
+        <button class="verify-btn" onclick="verifyTicket()">Verify Ticket</button>
+
+        <div id="result" class="result"></div>
+        <div id="ticketInfo" class="ticket-info"></div>
+    </div>
+    <div>
+    <section style="text-align: left; margin-top: 30px; font-size: 0.8rem; color: #d7d6d6;">
+        <footer>&copy;Festus Lynx | +233 551 858 087</footer>
+    </section>
+    </div>
+
+    <script>
+        function verifyTicket() {
+            const ticketCode = document.getElementById('ticketCode').value.trim().toUpperCase();
+            const resultDiv = document.getElementById('result');
+            const ticketInfoDiv = document.getElementById('ticketInfo');
+
+            // Clear previous results
+            resultDiv.className = 'result';
+            ticketInfoDiv.className = 'ticket-info';
+            resultDiv.innerHTML = '';
+            ticketInfoDiv.innerHTML = '';
+
+            if (!ticketCode) {
+                showResult('Please enter a ticket code', 'invalid');
+                return;
+            }
+
+            // Simple validation logic (demo purposes)
+            // In real implementation, this would connect to backend API
+            const validPatterns = [
+                'VIP001-2026',
+                'GA123-2026',
+                'SP001-2026',
+                'ABC123-XYZ789',
+                'TECH001-VIP'
+            ];
+
+            const isValid = validPatterns.some(pattern => 
+                ticketCode.includes(pattern.split('-')[0]) && 
+                ticketCode.includes(pattern.split('-')[1])
+            );
+
+            setTimeout(() => {
+                if (isValid) {
+                    showResult('Ticket Verified Successfully!', 'valid');
+                    showTicketInfo(ticketCode);
+                } else {
+                    showResult('Invalid Ticket Code', 'invalid');
+                }
+            }, 800);
+        }
+
+        function showResult(message, type) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = `result ${type} show`;
+        }
+
+        function showTicketInfo(ticketCode) {
+            const ticketInfoDiv = document.getElementById('ticketInfo');
+            ticketInfoDiv.innerHTML = `
+                <h3>🎫 Ticket Details</h3>
+                <p><strong>Ticket Code:</strong> ${ticketCode}</p>
+                <p><strong>Status:</strong> <span style="color: #05a019; font-weight: bold;">VALID</span></p>
+                <p><strong>Type:</strong> General Admission</p>
+                <p><strong>Valid For:</strong> All 3 Days</p>
+            `;
+            ticketInfoDiv.className = 'ticket-info show';
+        }
+
+        // Allow Enter key to verify
+        document.getElementById('ticketCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyTicket();
+            }
+        });
+
+        // Auto-format input (uppercase + hyphen support)
+        document.getElementById('ticketCode').addEventListener('input', function(e) {
+            let value = e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, '');
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
